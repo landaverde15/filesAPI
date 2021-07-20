@@ -46,7 +46,8 @@ def getTotalNumberOfPhotos():
     # retrive number of photos in server
     totalFiles = os.listdir(photo_directory)
     totalFilesLength = len(totalFiles)
-    return totalFilesLength
+    totalFilesLengthStr = str(totalFilesLength)
+    return totalFilesLengthStr
     
 
 if __name__ == "__main__":
