@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/styles/tomorrow-night-blue.min.css" integrity="sha512-5S4LcSzBz9ok9/ndj5wML4MX3t9ALO0W3rD2vYhzBF7uQk274VieL4BEaI12XtTRTZxdswJ8qrXdDpB6p/PHlg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Erik's Python (Flask) API</title>
+    <script>hljs.highlightAll();</script>
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            padding: 0;
+            margin: 0px auto;
+            max-width: 1366px;
+            height: 100vh;
+        }
+        .title {
+            margin-top: 20px;
+            color: #233659;
+            border-bottom: 1px solid rgba(148,151,155,0.2);
+            padding-bottom: 1rem;
+            font-size: 36.4px;
+        }
+        .bottomBrdr {
+            border-bottom: 1px solid rgba(148,151,155,0.2);
+            padding-bottom: 10px;
+        }
+        .title2 {
+            color: #233659;
+            font-size: 25.2px;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .headerRow {
+            height: 30px;
+            background-color: #233659;
+        }
+        .col {
+            flex-grow: 1;
+            margin: 10px .5%;
+            padding: 10px 5%;
+        }
+        .headerCol {
+            flex-grow: 1;
+            margin: 2px .5%;
+            padding: 2px 5%;
+        }
+
+        .headerTxt {
+            color: #ffffff;
+            margin-top: 2px;
+            font-size: 13px;
+        }
+        .whiteTxt {
+            color: #ffffff;
+        }
+        .descriptionTxt {
+            color: #233659;
+            font-size: 14px;
+        }
+        .techStackDiv {
+            background-color: #F9F9F9;
+            border-left-color: #36D576;
+            border-left-width: 4px;
+            border-left-style: solid;
+            padding: 1rem 1.5rem;
+        }
+        .techStackP {
+            font-size: 12.6px;
+        }
+        .methodLink {
+            color: #008CFF;
+            opacity: 0.999;
+            text-decoration: underline;
+        }
+        .methodsSubTitle {
+            color: #233659;
+            font-size: 22.4px;
+            margin-bottom: 20px;
+        }
+        .marginBtm {
+            margin-bottom: 20px;
+        } 
+        .customCode {
+            overflow-x: scroll !important;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- header section -->
+        <div class="row headerRow">
+            <div class="headerCol">
+                <p class="headerTxt">Erik Landaverde Docs</p>
+            </div>
+        </div>
+        <!-- title section -->
+        <div class="row">
+            <div class="col">
+                <h1 class="title">Erik's REST Photo/File API</h1>
+            </div>
+        </div>
+        <!-- description section -->
+        <div class="row">
+            <div class="col">
+                <p class="descriptionTxt">This API allows for easy file upload to a secure cloud server hosted on Digital Ocean. With this API you can also get a JSON snapshot of all files already uploaded. Files can also be retrieved for UI display.
+                    Why did I develop this API? A client asked for me to develop a portfolio personal site for their photography work. Instead of having to manually go into the cloud server and place photos 1 by 1 - I developed a custom API where I can just
+                    upload photos into the server via an HTML form (client portfolio site pulls photos from cloud server for display).
+                </p>
+            </div>
+        </div>
+        <!-- description section 2 -->
+        <div class="row">
+            <div class="col">
+                <div class="techStackDiv">
+                    <p class="techStackP">Tech Stack: This API is built in Python language using the Flask web framework. Total methods for API is 3.
+                        Methods are the following: <span class="methodLink">getAllPhotoInfo</span>, <span class="methodLink">uploadPhoto</span>, <span class="methodLink">getTotalNumberOfPhotos</span>.
+                    </p>
+                </div>
+                <p class="whiteTxt bottomBrdr">Blank txt</p>
+            </div>
+        </div>
+        <!-- methods section -->
+        <div class="row">
+            <div class="col">
+                <h1 class="title2">Methods</h1>
+            </div>
+        </div>
+        <!-- methods sub title -->
+        <div class="row">
+            <div class="col">
+                <!-- method 1 -->
+                <p class="methodsSubTitle">/getAllPhotoInfo</p>
+                <p class="descriptionTxt marginBtm">No parameters. Method returns a JSON object of all photos/files uploaded onto server. Sample JavaScript HTTP request below:</p>
+                <pre>
+                    <code class="language-javascript customCode">
+                        fetch('https://digitalocean-erik15.com/getAllPhotoInfo')
+                            .then(response => response.json())
+                            .then(data => {
+                            console.log('Success: ', data);
+                            })
+                            .catch((error) => {
+                            console.error('Error: ', error);
+                        });
+                    </code>
+                </pre>
+
+                <!-- method 2 -->
+                <p class="methodsSubTitle">/uploadPhoto</p>
+                <p class="descriptionTxt marginBtm">HTTP POST request. Send via an HTML form. Method uploads a photo/file onto server. It is important that all attributes match in sample for HTML elements.</p>
+                <pre>
+                    <code class="language-html customCode">
+                        &lt;form action="http://localhost:5000/uploadPhoto" method="POST" enctype="multipart/form-data">
+                            file: &lt;input type="file" name="image_file" accept="image/*">
+                            &lt;input type="submit">
+                        &lt;/form>
+                    </code>
+                </pre>
+
+                <!-- method 3 -->
+                <p class="methodsSubTitle">/getTotalNumberOfPhotos</p>
+                <p class="descriptionTxt marginBtm">HTTP GET request. This method returns a number which is the total number of photos/files that live within the server (or that user has uploaded).</p>
+                <pre>
+                    <code class="language-javascript customCode">
+                        fetch('https://digitalocean-erik15.com/getTotalNumberOfPhotos')
+                            .then(response => response.json())
+                            .then(data => {
+                            console.log('Total number of photos living in server: ', data);
+                            })
+                            .catch((error) => {
+                            console.error('Error: ', error);
+                        });
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
