@@ -146,7 +146,7 @@
                 <p class="descriptionTxt marginBtm">No parameters. Method returns a JSON object of all photos/files uploaded onto server. Sample JavaScript HTTP request below:</p>
                 <pre>
                     <code class="language-javascript customCode">
-                        fetch('https://digitalocean-erik15.com/getAllPhotoInfo')
+                        fetch('https://files-api-jfl6e.ondigitalocean.app/getAllPhotoInfo')
                             .then(response => response.json())
                             .then(data => {
                             console.log('Success: ', data);
@@ -162,7 +162,7 @@
                 <p class="descriptionTxt marginBtm">HTTP POST request. Send via an HTML form. Method uploads a photo/file onto server. It is important that all attributes match in sample for HTML elements.</p>
                 <pre>
                     <code class="language-html customCode">
-                        &lt;form action="http://localhost:5000/uploadPhoto" method="POST" enctype="multipart/form-data">
+                        &lt;form action="https://files-api-jfl6e.ondigitalocean.app/uploadPhoto" method="POST" enctype="multipart/form-data">
                             file: &lt;input type="file" name="image_file" accept="image/*">
                             &lt;input type="submit">
                         &lt;/form>
@@ -174,7 +174,7 @@
                 <p class="descriptionTxt marginBtm">HTTP GET request. This method returns a number which is the total number of photos/files that live within the server (or that user has uploaded).</p>
                 <pre>
                     <code class="language-javascript customCode">
-                        fetch('https://digitalocean-erik15.com/getTotalNumberOfPhotos')
+                        fetch('https://files-api-jfl6e.ondigitalocean.app/getTotalNumberOfPhotos')
                             .then(response => response.json())
                             .then(data => {
                             console.log('Total number of photos living in server: ', data);
